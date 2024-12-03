@@ -1,0 +1,30 @@
+{{- if .Values.dnsManagement.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: dns-management-applications-{{ .Values.environment }}
+  namespace: {{ .Values.argocd.namespace }}
+spec:
+  generators:
+    - git:
+        repoURL: https://speelyaal@bitbucket.org/speelyaal/campuszeus.config.git
+        revision: HEAD
+        directories:
+          - path: 'dns-management/overlay/{{ .Values.environment }}/*'
+  template:
+    metadata:
+      name: 'dns-management-{{ .Values.environment }}'
+    spec:
+      project: k8s-app-factory-project-{{ .Values.environment }}
+      source:
+        repoURL: https://speelyaal@bitbucket.org/speelyaal/campuszeus.config.git
+        targetRevision: HEAD
+        path: 'dns-management/overlay/{{ .Values.environment }}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: {{ .Values.dnsManagement.namespace }}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+{{- end }}

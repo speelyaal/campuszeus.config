@@ -1,0 +1,30 @@
+{{- if .Values.collegeEdition.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: college-edition-applications-{{ .Values.environment }}
+  namespace: {{ .Values.argocd.namespace }}
+spec:
+  generators:
+    - git:
+        repoURL: '{{ .Values.argocd.configRepoUrl }}'
+        revision: HEAD
+        directories:
+          - path: 'college-edition/overlay/{{ .Values.environment }}/*'
+  template:
+    metadata:
+      name: '{{path.basename}}-college'
+    spec:
+      project: campuszeus-{{ .Values.environment }}
+      source:
+        repoURL: '{{ .Values.argocd.configRepoUrl }}'
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: {{ .Values.collegeEdition.namespace }}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+  {{- end }}

@@ -1,0 +1,34 @@
+
+#If observability.enabled is true in the values.yaml file, then the following helm file will be installed
+
+{{- if .Values.observability.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: observability-applications-{{ .Values.environment }}
+  namespace: {{ .Values.argocd.namespace }}
+spec:
+  generators:
+    - git:
+        repoURL: '{{ .Values.argocd.configRepoUrl }}'
+        revision: HEAD
+        directories:
+          - path: 'observability/overlay/{{ .Values.environment }}/*'
+  template:
+    metadata:
+      name: '{{path.basename}}-dns'
+    spec:
+      project: campuszeus-{{ .Values.environment }}
+      source:
+        repoURL: '{{ .Values.argocd.configRepoUrl }}'
+        targetRevision: HEAD
+        path: 'observability/overlay/{{ .Values.environment }}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: dns-{{path.basename}}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+
+  {{- end }}

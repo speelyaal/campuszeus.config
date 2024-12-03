@@ -1,0 +1,26 @@
+# This is an ArgoCD AppProject resource that defines the default settings for all applications in the project.
+
+# The spec.sourceRepos field is a list of repositories that ArgoCD will use to find the application manifests. In this case, the list contains a single repository, which is the campuszeus.config repository.
+
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: k8s-app-factory-project-{{ .Values.environment }}
+  namespace: {{ .Values.argocd.namespace }}
+spec:
+  description: Project for managing dev environment applications in thaalam-argo.
+  sourceRepos:
+    - {{ .Values.argocd.configRepoUrl }}
+  destinations:
+    - namespace: '*'
+      server: 'https://kubernetes.default.svc'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceBlacklist:
+    - group: ''
+      kind: Event
+  syncWindows:
+    - kind: allow
+      schedule: "* * * * *"
+      duration: "24h"

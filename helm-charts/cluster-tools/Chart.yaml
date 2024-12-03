@@ -1,0 +1,5 @@
+apiVersion: v2
+name: cluster-tools
+description: "This is an ArgoCD ApplicationSet resource that defines the applications that will be installed in at the cluster level."
+version: 0.1.0
+appVersion: "1.0"

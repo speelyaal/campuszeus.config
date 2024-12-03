@@ -1,0 +1,8 @@
+provider: aws
+aws:
+  credentials:
+    secretName: dev-external-dns-aws-credentials
+  zoneType: private
+domainFilters:
+  - "dev.example.com"
+txtOwnerId: "external-dns-dev"

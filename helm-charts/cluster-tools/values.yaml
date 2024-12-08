@@ -1,10 +1,10 @@
 environment: nonprod
 argocd:
     namespace: argo
-    configRepoUrl: git@github.com:speelyaal/campuszeus.config.git
+    configRepoUrl: https://github.com/speelyaal/campuszeus.config.git
 dnsManagement:
     enabled: true
-    namespace: dns-management-dev
+    namespace: dns-management-nonprod
 observability:
     enabled: true
-    namespace: observability-dev
+    namespace: observability-nonprod

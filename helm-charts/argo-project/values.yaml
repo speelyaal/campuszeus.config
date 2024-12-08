@@ -2,3 +2,5 @@ environment: nonprod
 argocd:
     namespace: argo
     configRepoUrl: https://github.com/speelyaal/campuszeus.config.git
+github:
+    url: https://github.com/speelyaal/campuszeus.config.git

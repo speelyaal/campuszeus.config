@@ -7,7 +7,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://speelyaal@bitbucket.org/speelyaal/campuszeus.config.git
+        repoURL: {{ .Values.argocd.configRepoUrl }}
         revision: HEAD
         directories:
           - path: 'dns-management/overlay/{{ .Values.environment }}/*'
@@ -17,7 +17,7 @@ spec:
     spec:
       project: k8s-app-factory-project-{{ .Values.environment }}
       source:
-        repoURL: https://speelyaal@bitbucket.org/speelyaal/campuszeus.config.git
+        repoURL: {{ .Values.argocd.configRepoUrl }}
         targetRevision: HEAD
         path: 'dns-management/overlay/{{ .Values.environment }}'
       destination:

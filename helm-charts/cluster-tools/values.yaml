@@ -1,7 +1,7 @@
 environment: nonprod
 argocd:
     namespace: argo
-    configRepoUrl: https://speelyaal@bitbucket.org/speelyaal/campuszeus.config.git
+    configRepoUrl: git@github.com:speelyaal/campuszeus.config.git
 dnsManagement:
     enabled: true
     namespace: dns-management-dev

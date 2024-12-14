@@ -19,7 +19,7 @@ spec:
       source:
         repoURL: {{ .Values.argocd.configRepoUrl }}
         targetRevision: HEAD
-        path: 'dns-management/overlays/{{ .Values.environment }}'
+        path: 'dns-management/overlays/{{ .Values.environment }}/external-dns'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: {{ .Values.dnsManagement.namespace }}

@@ -13,7 +13,7 @@ spec:
         repoURL: '{{ .Values.argocd.configRepoUrl }}'
         revision: HEAD
         directories:
-          - path: 'observability/overlay/{{ .Values.environment }}/*'
+          - path: 'observability/overlays/{{ .Values.environment }}/*'
   template:
     metadata:
       name: '{{path.basename}}-dns'
@@ -22,7 +22,7 @@ spec:
       source:
         repoURL: '{{ .Values.argocd.configRepoUrl }}'
         targetRevision: HEAD
-        path: 'observability/overlay/{{ .Values.environment }}'
+        path: 'observability/overlays/{{ .Values.environment }}'
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: dns-{{path.basename}}

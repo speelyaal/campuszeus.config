@@ -10,7 +10,7 @@ spec:
         repoURL: '{{ .Values.argocd.configRepoUrl }}'
         revision: HEAD
         directories:
-          - path: 'college-edition/overlay/{{ .Values.environment }}/*'
+          - path: 'college-edition/overlays/{{ .Values.environment }}/*'
   template:
     metadata:
       name: '{{path.basename}}-college'

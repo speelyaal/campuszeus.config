@@ -1,7 +1,0 @@
-image:
-  repository: bitnami/nginx
-  tag: "1.22.0"
-service:
-  type: ClusterIP
-ingress:
-  enabled: false

@@ -13,7 +13,7 @@ spec:
         repoURL: '{{ .Values.argocd.configRepoUrl }}'
         revision: HEAD
         directories:
-          - path: 'identity-and-access/overlay/{{ .Values.environment }}/*'
+          - path: 'identity-and-access/overlays/{{ .Values.environment }}/*'
   template:
     metadata:
       name: '{{path.basename}}-dns'

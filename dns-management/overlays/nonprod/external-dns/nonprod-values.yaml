@@ -17,6 +17,6 @@ spec:
             secretKey: AWS_SECRET_ACCESS_KEY
           zoneType: public
         domainFilters:
-          - "example.com"
-          - "example.org"
+          - "cz.com"
+          - "cz.org"
         txtOwnerId: "external-dns"

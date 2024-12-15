@@ -8,12 +8,12 @@ spec:
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: external-dns
-    targetRevision: 8.6.1
+    targetRevision: 8.0.0
     helm:
       values: |
         image:
           repository: bitnami/external-dns
-          tag: "0.15.0"
+          tag: "0.14.2"
         provider: aws
         aws:
           zoneType: public

@@ -4,7 +4,7 @@ metadata:
   name: external-dns
   namespace: argo
 spec:
-  project: default
+  project: k8s-app-factory-project-nonprod
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: external-dns
@@ -13,7 +13,7 @@ spec:
       values: |
         image:
           repository: bitnami/external-dns
-          tag: "0.15.0"
+          tag: "0.15.0-debian-12-r5"
         provider: aws
         aws:
           zoneType: public

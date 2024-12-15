@@ -1,16 +1,14 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: external-dns
-spec:
-  source:
-    helm:
-      values: |
-        provider: aws
-        aws:
-          credentials:
-            secretName: dev-external-dns-aws-credentials
-          zoneType: private
-        domainFilters:
-          - "dev.example.com"
-        txtOwnerId: "external-dns-dev"
+image:
+  repository: bitnami/external-dns
+  tag: "0.15.0"
+provider: aws
+aws:
+  credentials:
+    secretName: external-dns-aws-credentials
+    accessKey: AWS_ACCESS_KEY_ID
+    secretKey: AWS_SECRET_ACCESS_KEY
+  zoneType: public
+domainFilters:
+  - "example.com"
+  - "example.org"
+txtOwnerId: "external-dns"

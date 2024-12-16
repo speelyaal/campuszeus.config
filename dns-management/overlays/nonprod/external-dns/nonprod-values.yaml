@@ -11,16 +11,14 @@ spec:
           tag: "0.15.0"
         sources:
           - ingress
-        provider: godaddy
+        provider: digitalocean
         policy: sync
         extraArgs:
           source: ingress
-          domain-filter: cz1.com
-          txt-prefix: "cz"
+          domain-filter: acurion.xyz
+          txt-prefix: "external-dns"
           txt-owner-id: "external-dns"
-          godaddy-api-key: "key"
-          godaddy-api-secret: "secret"
         extraEnvVars:
           - name: DO_TOKEN
-            value: "token"
+            value: "<your-digitalocean-token>"
         txtOwnerId: "external-dns"

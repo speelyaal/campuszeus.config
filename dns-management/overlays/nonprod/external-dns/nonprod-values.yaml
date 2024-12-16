@@ -20,5 +20,8 @@ spec:
           txt-owner-id: "external-dns"
         extraEnvVars:
           - name: DO_TOKEN
-            value: "<your-digitalocean-token>"
+            valueFrom:
+              secretKeyRef:
+                name: digitalocean-token
+                key: DO_TOKEN
         txtOwnerId: "external-dns"

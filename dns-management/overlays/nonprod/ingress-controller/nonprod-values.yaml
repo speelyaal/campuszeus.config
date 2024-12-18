@@ -1,27 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: external-dns
+  name: nginx-ingress-controller
 spec:
   source:
     helm:
       values: |
-        image:
-          repository: bitnami/external-dns
-          tag: "0.15.0"
-        sources:
-          - ingress
-        provider: digitalocean
-        policy: sync
-        extraArgs:
-          source: ingress
-          domain-filter: acurion.xyz
-          txt-prefix: "external-dns"
-        extraEnvVars:
-          - name: DO_TOKEN
-            valueFrom:
-              secretKeyRef:
-                name: digitalocean-api-token
-                key: DO_TOKEN
-                namespace: external-dns
-        txtOwnerId: "external-dns"
+        controller:
+          service:
+            annotations:
+              load-balancer.hetzner.cloud/name : k8s-ingress-lb-hel1
+              load-balancer.hetzner.cloud/location: "hel1" 
+              load-balancer.hetzner.cloud/use-private-ip: "true"

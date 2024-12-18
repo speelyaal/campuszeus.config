@@ -10,7 +10,6 @@ spec:
     chart: ingress-nginx
     targetRevision: 4.11.3
     helm:
-      #it is for hetzner load balancer, location hel1
       values: |
         controller:
           service:

@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgresql
+  namespace: argo
+spec:
+  project: k8s-app-factory-project-nonprod
+  source:
+    repoURL: "registry-1.docker.io/bitnamicharts"
+    chart: postgresql
+    targetRevision: 10.4.0
+    helm:
+      values: |
+        image:
+          repository: bitnami/postgresql
+          tag: "11.11.0-debian-10-r0"
+        postgresqlUsername: postgres
+        postgresqlPassword: postgres
+        postgresqlDatabase: postgres
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: postgresql
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

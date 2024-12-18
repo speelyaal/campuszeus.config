@@ -17,7 +17,6 @@ spec:
           source: ingress
           domain-filter: acurion.xyz
           txt-prefix: "external-dns"
-          txt-owner-id: "external-dns"
         extraEnvVars:
           - name: DO_TOKEN
             valueFrom:

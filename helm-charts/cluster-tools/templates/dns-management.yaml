@@ -13,7 +13,7 @@ spec:
           - path: 'dns-management/overlays/{{ .Values.environment }}/*'
   template:
     metadata:
-      name: 'dns-management-{{ .Values.environment }}'
+      name: 'dns-management-{{ .Values.environment }}-{{`{{path.basename}}`}}'
     spec:
       project: k8s-app-factory-project-{{ .Values.environment }}
       source:
@@ -22,7 +22,7 @@ spec:
         path: '{{`{{path}}`}}'
       destination:
         server: 'https://kubernetes.default.svc'
-        namespace: {{ .Values.dnsManagement.namespace }}
+        namespace: {{`{{path.basename}}`}}'
       syncPolicy:
         automated:
           prune: true

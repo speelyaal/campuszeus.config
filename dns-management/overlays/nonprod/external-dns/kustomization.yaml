@@ -5,16 +5,6 @@ resources:
 
 patches:
   - target:
-      kind: HelmChart
+      kind: Application
       name: external-dns
-    patch: |-
-      - op: replace
-        path: /helmCharts/0/valuesInline/aws/zoneType
-        value: private
-      - op: replace
-        path: /helmCharts/0/valuesInline/domainFilters
-        value:
-          - "nonprod.example.com"
-      - op: replace
-        path: /helmCharts/0/valuesInline/txtOwnerId
-        value: "external-dns-nonprod"
+    path: nonprod-values.yaml

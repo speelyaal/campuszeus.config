@@ -10,13 +10,9 @@ spec:
     chart: ingress-nginx
     targetRevision: 4.11.3
     helm:
-      values: |
-        controller:
-          service:
-            annotations:
-              load-balancer.hetzner.cloud/name : k8s-ingress-lb-hel1
-              load-balancer.hetzner.cloud/location: "hel1" 
-              load-balancer.hetzner.cloud/use-private-ip: "true"
+      valueFiles:
+        - values.yaml
+
   destination:
     server: https://kubernetes.default.svc
     namespace: nginx-ingress-controller

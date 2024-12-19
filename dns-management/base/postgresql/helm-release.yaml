@@ -10,13 +10,9 @@ spec:
     chart: postgresql
     targetRevision: 10.4.0
     helm:
-      values: |
-        image:
-          repository: bitnami/postgresql
-          tag: "11.11.0-debian-10-r0"
-        postgresqlUsername: postgres
-        postgresqlPassword: postgres
-        postgresqlDatabase: postgres
+      valuesFiles:
+        - values.yaml
+
   destination:
     server: https://kubernetes.default.svc
     namespace: postgresql

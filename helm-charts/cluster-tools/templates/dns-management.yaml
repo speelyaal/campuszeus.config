@@ -1,30 +1,17 @@
-{{- if .Values.dnsManagement.enabled }}
 apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
+kind: Application
 metadata:
-  name: dns-management-applications-{{ .Values.environment }}
-  namespace: {{ .Values.argocd.namespace }}
+  name: dns-management-nonprod
+  namespace: argo
 spec:
-  generators:
-    - git:
-        repoURL: {{ .Values.argocd.configRepoUrl }}
-        revision: HEAD
-        directories:
-          - path: 'dns-management/overlays/{{ .Values.environment }}/*'
-  template:
-    metadata:
-      name: '{{`{{path.basename}}`}}'
-    spec:
-      project: k8s-app-factory-project-{{ .Values.environment }}
-      source:
-        repoURL: {{ .Values.argocd.configRepoUrl }}
-        targetRevision: HEAD
-        path: '{{`{{path}}`}}'
-      destination:
-        server: 'https://kubernetes.default.svc'
-        namespace: '{{`{{path.basename}}`}}'
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-{{- end }}
+  project: k8s-app-factory-project-nonprod
+  source:
+    repoURL: https://github.com/speelyaal/campuszeus.config.git
+    targetRevision: HEAD
+    path: dns-management/overlays/nonprod
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

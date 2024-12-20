@@ -14,8 +14,7 @@ spec:
         provider: digitalocean
         policy: sync
         extraArgs:
-          source: ingress
-         
+          source: ingress        
           txt-prefix: "external-dns"
         extraEnvVars:
           - name: DO_TOKEN

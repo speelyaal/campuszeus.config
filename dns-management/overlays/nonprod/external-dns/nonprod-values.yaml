@@ -15,7 +15,7 @@ spec:
         policy: sync
         extraArgs:
           source: ingress
-          domain-filter: acurion.xyz
+         
           txt-prefix: "external-dns"
         extraEnvVars:
           - name: DO_TOKEN
@@ -25,3 +25,7 @@ spec:
                 key: DO_TOKEN
                 namespace: external-dns
         txtOwnerId: "external-dns"
+        domainFilters: 
+          - "acurion.xyz"
+          - "campuszeus.xyz"
+          - "speelyaal.xyz"

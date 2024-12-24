@@ -7,4 +7,3 @@ spec:
     helm:
       values: |
         installCRDs: true
-        

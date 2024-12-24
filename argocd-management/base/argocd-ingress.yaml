@@ -1,9 +1,9 @@
-#Ingress to expose ArgoCD via argocd-nonprod.speelyaal.xyz
+# Ingress to expose ArgoCD via argocd-nonprod.speelyaal.xyz
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: argocd-nonprod
-  namespace: argocd
+  namespace: argo
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -18,10 +18,18 @@ metadata:
       more_set_headers "Referrer-Policy: no-referrer-when-downgrade";
       more_set_headers "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload";
 spec:
-    rules:
+  tls:
+    - hosts:
+        - argocd-nonprod.speelyaal.xyz
+      secretName: argocd-nonprod-tls
+  rules:
     - host: argocd-nonprod.speelyaal.xyz
-        http:
-            paths:
-
-
-
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 443

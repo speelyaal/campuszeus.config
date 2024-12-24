@@ -1,0 +1,13 @@
+#Namespace for nginx-ingress-controller
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nginx-ingress-controller
+  labels:
+    name: nginx-ingress-controller
+    app: nginx-ingress-controller
+    app.kubernetes.io/name: nginx-ingress-controller
+    app.kubernetes.io/instance: nginx-ingress-controller
+    app.kubernetes.io/component: nginx-ingress-controller
+    app.kubernetes.io/part-of: nginx-ingress-controller

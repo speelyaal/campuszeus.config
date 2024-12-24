@@ -1,0 +1,12 @@
+#Namespace for external-dns
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: external-dns
+  labels:
+    name: external-dns
+    app: external-dns
+    app.kubernetes.io/name: external-dns
+    app.kubernetes.io/instance: external-dns
+    app.kubernetes.io/component: external-dns
+    app.kubernetes.io/part-of: external-dns

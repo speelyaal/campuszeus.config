@@ -1,6 +1,4 @@
-image:
-  repository: bitnami/external-dns
-  tag: "0.14.2"
+
 provider: aws
 aws:
   zoneType: public

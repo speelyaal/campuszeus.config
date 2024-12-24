@@ -6,9 +6,6 @@ spec:
   source:
     helm:
       values: |
-        image:
-          repository: bitnami/external-dns
-          tag: "0.15.0"
         sources:
           - ingress
         provider: digitalocean

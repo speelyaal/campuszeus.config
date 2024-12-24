@@ -1,21 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: postgresql
+  name: cert-manager
   namespace: argo
 spec:
   project: k8s-app-factory-project-nonprod
   source:
     repoURL: "registry-1.docker.io/bitnamicharts"
-    chart: postgresql
-    targetRevision: 10.4.0
+    chart: cert-manager
+    targetRevision: 1.4.0
     helm:
       valuesFiles:
         - values.yaml
-
   destination:
     server: https://kubernetes.default.svc
-    namespace: postgresql
+    namespace: cert-manager
   syncPolicy:
     automated:
       prune: true

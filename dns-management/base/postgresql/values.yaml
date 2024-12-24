@@ -1,6 +1,0 @@
-image:
-  repository: bitnami/postgresql
-  tag: "11.11.0-debian-10-r0"
-  postgresqlUsername: postgres
-  postgresqlPassword: postgres
-  postgresqlDatabase: postgres

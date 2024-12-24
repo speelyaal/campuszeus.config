@@ -18,5 +18,4 @@ spec:
               digitalocean:
                 tokenSecretRef:
                   name: digitalocean-api-token
-                  namespace: external-dns
                   key: DO_TOKEN

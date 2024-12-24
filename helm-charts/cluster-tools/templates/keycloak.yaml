@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dns-management-{{ .Values.cluster}}
+  name: keycloak-{{ .Values.cluster}}
   namespace: argo
 spec:
   project: {{ .Values.argoProjectPrefix }}-{{ .Values.cluster }}
   source:
     repoURL: https://github.com/speelyaal/campuszeus.config.git
     targetRevision: HEAD
-    path: dns-management/overlays/{{ .Values.cluster }}
+    path: keycloak/overlays/{{ .Values.cluster }}
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:

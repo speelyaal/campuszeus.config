@@ -7,6 +7,7 @@ resources:
   - nginx-ingress-controller/namespace.yaml
   - nginx-ingress-controller/helm-release.yaml
   - cert-manager/namespace.yaml
+  - cert-manager/cert-manager.crds-1.16.2.yaml
   - cert-manager/helm-release.yaml
   - cert-manager/cert-cluster-issuer.yaml
   - cert-manager/cert-cluster-staging-issuer.yaml

@@ -4,9 +4,3 @@ argoProjectPrefix: k8s-app-factory-project
 argocd:
     namespace: argo
     configRepoUrl: https://github.com/speelyaal/campuszeus.config.git
-dnsManagement:
-    enabled: true
-    namespace: dns-management-nonprod
-observability:
-    enabled: true
-    namespace: observability-nonprod

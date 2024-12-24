@@ -5,7 +5,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: k8s-app-factory-project-{{ .Values.environment }}
+  name: {{.Values.argoProjectName}}
   namespace: {{ .Values.argocd.namespace }}
 spec:
   description: Project for managing dev environment applications in thaalam-argo.

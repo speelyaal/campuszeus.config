@@ -1,4 +1,6 @@
 environment: nonprod
+cluster: nonprod
+argoProjectName: k8s-app-factory-project-nonprod
 argocd:
     namespace: argo
     configRepoUrl: https://github.com/speelyaal/campuszeus.config.git

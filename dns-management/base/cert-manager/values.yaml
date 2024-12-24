@@ -1,3 +1,1 @@
-image:
-  repository: bitnami/cert-manager
-  tag: "1.16.2"
+installCRDs: true

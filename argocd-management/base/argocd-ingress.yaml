@@ -1,4 +1,4 @@
-# Ingress to expose ArgoCD via argocd-nonprod.speelyaal.xyz
+# Ingress to expose ArgoCD via argocd-nonprod.yaal.be
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -14,10 +14,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - argocd-nonprod.speelyaal.xyz
+        - argocd-nonprod.yaal.be
       secretName: argocd-nonprod-tls
   rules:
-    - host: argocd-nonprod.speelyaal.xyz
+    - host: argocd-nonprod.yaal.be
       http:
         paths:
           - path: /

@@ -1,4 +1,5 @@
 environment: nonprod
+cluster: nonprod
 argocd:
     namespace: argo
     configRepoUrl: https://github.com/speelyaal/campuszeus.config.git

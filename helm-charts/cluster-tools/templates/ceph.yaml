@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dns-management-{{ .Values.cluster}}
+  name: ceph-{{.Values.cluster}}
   namespace: argo
 spec:
-  project: k8s-app-factory-project-{{ .Values.cluster }}
+  project: k8s-app-factory-project-{{.Values.cluster}}
   source:
     repoURL: https://github.com/speelyaal/campuszeus.config.git
     targetRevision: HEAD
-    path: dns-management/overlays/{{ .Values.cluster }}
+    path: ceph/overlays/{{.Values.cluster}}
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:

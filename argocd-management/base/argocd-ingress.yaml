@@ -10,6 +10,7 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true" # Enforce HTTPS redirection
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" # Ensure backend connection uses HTTPS
     external-dns.alpha.kubernetes.io/access: "public"
+    external-dns.alpha.kubernetes.io/hostname: "argocd-nonprod.yaal.be"
 spec:
   tls:
     - hosts:

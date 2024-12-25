@@ -15,8 +15,8 @@ spec:
             name: letsencrypt-staging
         solvers:
             - dns01:
-                digitalocean:
-                    tokenSecretRef:
-                      name: digitalocean-api-token
-                      key: DO_TOKEN
+                cloudflare:
+                  apiTokenSecretRef:
+                      name: cloudflare-api-token
+                      key: CF_API_TOKEN
 

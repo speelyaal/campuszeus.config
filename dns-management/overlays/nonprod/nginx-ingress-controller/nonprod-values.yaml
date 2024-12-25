@@ -13,4 +13,7 @@ spec:
               load-balancer.hetzner.cloud/location: "nbg1" 
               load-balancer.hetzner.cloud/type: "lb11"
               load-balancer.hetzner.cloud/use-private-ip: "true"
+        
+              # A very important annotation to disable private ingress, otherwise external-dns will not be able to create DNS records in Cloudflare
+              # Because cloudflare will not be able to resolve the private IP address of the ingress controller, it will not allow the creation of DNS records with private IP addresses
               load-balancer.hetzner.cloud/disable-private-ingress: "true"

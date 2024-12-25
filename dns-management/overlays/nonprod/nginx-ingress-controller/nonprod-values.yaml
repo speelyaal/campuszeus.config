@@ -9,6 +9,6 @@ spec:
         controller:
           service:
             annotations:
-              load-balancer.hetzner.cloud/name : k8s-ingress-lb-fsn1
-              load-balancer.hetzner.cloud/location: "fsn1" 
-              load-balancer.hetzner.cloud/use-private-ip: "true"
+              load-balancer.hetzner.cloud/name : k8s-ingress-lb-nbg1
+              load-balancer.hetzner.cloud/location: "nbg1" 
+              load-balancer.hetzner.cloud/type: "lb11"

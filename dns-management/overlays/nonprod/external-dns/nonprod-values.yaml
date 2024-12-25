@@ -20,6 +20,14 @@ spec:
                 name: cloudflare-api-token
                 key: CF_API_TOKEN
                 namespace: external-dns
+          - name: CF_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: cloudflare-api-key
+                key: CF_API_KEY
+                namespace: external-dns
+          - name: CF_API_EMAIL
+            value: "ashok@speelyaal.com"
         txtOwnerId: "external-dns"
         domainFilters: 
           - "acurion.xyz"

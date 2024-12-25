@@ -16,6 +16,10 @@ spec:
         solvers:
             - dns01:
                 cloudflare:
+                  email: ashok@speelyaal.com
+                  apiKeySecretRef:
+                      name: cloudflare-api-key
+                      key: CF_API_KEY
                   apiTokenSecretRef:
                       name: cloudflare-api-token
                       key: CF_API_TOKEN

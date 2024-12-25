@@ -3,4 +3,4 @@ controller:
     annotations:
       load-balancer.hetzner.cloud/name : k8s-ingress-lb-hel1
       load-balancer.hetzner.cloud/location: "hel1"
-    
+      load-balancer.hetzner.cloud/use-private-ip: "false"

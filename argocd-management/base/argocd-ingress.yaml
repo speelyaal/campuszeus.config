@@ -7,7 +7,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
 #    cert-manager.io/cluster-issuer: letsencrypt-prod
-#    nginx.ingress.kubernetes.io/force-ssl-redirect: "true" # Enforce HTTPS redirection
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false" # Enforce HTTPS redirection
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP" # Ensure backend connection uses HTTPS
     external-dns.alpha.kubernetes.io/access: "public"
     external-dns.alpha.kubernetes.io/hostname: "argocd-nonprod.yaal.be"

@@ -7,15 +7,15 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
 #    cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "false" # Enforce HTTPS redirection
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP" # Ensure backend connection uses HTTPS
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true" # Enforce HTTPS redirection
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS" # Ensure backend connection uses HTTPS
     external-dns.alpha.kubernetes.io/access: "public"
     external-dns.alpha.kubernetes.io/hostname: "argocd-nonprod.yaal.be"
 spec:
   tls:
     - hosts:
         - argocd-nonprod.yaal.be
-#      secretName: argocd-nonprod-tls
+      secretName: cloudflare-origin-ca-cert
   rules:
     - host: argocd-nonprod.yaal.be
       http:
@@ -26,4 +26,4 @@ spec:
               service:
                 name: argocd-server
                 port:
-                  number: 80
+                  number: 443

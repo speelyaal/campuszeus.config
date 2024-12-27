@@ -4,7 +4,7 @@ metadata:
   name: argocd-management-{{ .Values.cluster}}
   namespace: argo
 spec:
-  project: {{ .Values.argoProjectPrefix }} } }-{{ .Values.cluster }}
+  project: {{ .Values.argoProjectPrefix }}-{{ .Values.cluster }}
   source:
     repoURL: https://github.com/speelyaal/campuszeus.config.git
     targetRevision: HEAD

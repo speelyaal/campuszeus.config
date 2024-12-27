@@ -9,4 +9,4 @@ stringData:
   url: "https://kubernetes.github.io/ingress-nginx"
   name: "ingress-nginx"
   type: "helm"
-  project: "k8s-app-factory-project-{{ .Values.environment }}"
+  project: "{{.Values.argoProjectName}}"

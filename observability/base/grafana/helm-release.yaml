@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: external-dns
-  namespace: argo
+  name: grafana
+  namespace: observability
 spec:
   project: project-name
   source:
-    repoURL: "registry-1.docker.io/bitnamicharts"
-    chart: external-dns
-    targetRevision: 8.6.1
+    repoURL: "https://grafana.github.io/helm-charts"
+    chart: grafana
+    targetRevision: 8.8.2
     helm:
       valuesFiles:
         - values.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: external-dns
+    namespace: observability
   syncPolicy:
     automated:
       prune: true

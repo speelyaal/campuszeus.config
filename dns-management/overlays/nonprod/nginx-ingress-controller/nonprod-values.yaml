@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: nginx-ingress-controller
 spec:
+  project: k8s-app-factory-project-nonprod§
   source:
     helm:
       values: |

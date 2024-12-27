@@ -4,10 +4,10 @@ metadata:
   name: external-dns
   namespace: argo
 spec:
-  project: project-name
+  project: k8s-app-factory-project-nonprod
   source:
-    repoURL: "registry-1.docker.io/bitnamicharts"
-    chart: external-dns
+    repoURL: "registry.developers.crunchydata.com/crunchydata/pgo"
+    chart: pgo
     targetRevision: 8.6.1
     helm:
       valuesFiles:

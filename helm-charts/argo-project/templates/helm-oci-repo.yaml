@@ -10,4 +10,4 @@ stringData:
   name: "bitnamicharts"
   type: "helm"
   enableOCI: "true"
-  project: "k8s-app-factory-project-{{ .Values.environment }}"
+  project: "{{.Values.argoProjectName}}"

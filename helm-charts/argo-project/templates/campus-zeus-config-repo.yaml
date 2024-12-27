@@ -9,4 +9,4 @@ stringData:
   url: "https://github.com/speelyaal/campuszeus.config.git"
   name: "campuszeus.config"
   type: "git"
-  project: "k8s-app-factory-project-{{ .Values.environment }}"
+  project: "{{.Values.argoProjectName}}"

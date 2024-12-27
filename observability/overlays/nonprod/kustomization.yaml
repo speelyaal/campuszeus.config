@@ -2,3 +2,21 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base
+
+patches:
+    - target:
+        kind: Application
+        name: kube-prometheus-stack
+      path: kube-prometheus-stack/helm-release-patch.yaml
+    - target:
+        kind: Application
+        name: grafana
+      path: grafana/helm-release-patch.yaml
+    - target:
+        kind: Application
+        name: loki-distributed
+      path: loki/helm-release-patch.yaml
+    - target:
+        kind: Application
+        name: promtail
+      path: promtail/helm-release-patch.yaml

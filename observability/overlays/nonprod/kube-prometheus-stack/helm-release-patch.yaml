@@ -4,7 +4,8 @@ metadata:
   name: kube-prometheus-stack
 spec:
   project: k8s-app-factory-project-nonprod
-#  source:
-#    helm:
-#      valueFiles:
-#        - values.yaml
+  source:
+    helm:
+      values: |
+        alertmanager:
+          enabled: true

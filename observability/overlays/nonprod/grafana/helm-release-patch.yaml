@@ -21,4 +21,4 @@ spec:
         tls:
           - hosts:
               - grafana-nonprod.yaal.be
-              secretName: cloudflare-origin-ca-cert
+            secretName: cloudflare-origin-ca-cert

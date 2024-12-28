@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: grafana
-  namespace: observability
+  namespace: argo
 spec:
   project: project-name
   source:

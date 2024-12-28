@@ -10,6 +10,6 @@ resources:
 # Uncomment the following lines if you want to install cert-manager and use letsencrypt
 #  - cert-manager/namespace.yaml
 #  - cert-manager/cert-manager.crds-1.16.2.yaml
-#  - cert-manager/helm-release.yaml
+#  - cert-manager/grafana-helm-release.yaml
 #  - cert-manager/cert-cluster-issuer.yaml
 #  - cert-manager/cert-cluster-staging-issuer.yaml
